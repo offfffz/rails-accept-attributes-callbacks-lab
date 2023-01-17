@@ -1,8 +1,9 @@
 class Variant < ApplicationRecord
   belongs_to :product, inverse_of: :variants, autosave: true
-  after_save :do_something
 
   accepts_nested_attributes_for :product
+
+  after_save :do_something
 
   def do_something
     ap({
